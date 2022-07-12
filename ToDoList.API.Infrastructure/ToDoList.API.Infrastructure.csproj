@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ToDoList.Domain\ToDoList.API.Core.csproj" />
+    <ProjectReference Include="..\ToDoList.API.Core\ToDoList.API.Core.csproj" />
   </ItemGroup>
 
 </Project>

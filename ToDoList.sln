@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.API", "ToDoList.API\ToDoList.API.csproj", "{34E44160-F14A-4AC9-A96E-4D6EE81770CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.API.Infrastructure", "ToDoList.Data\ToDoList.API.Infrastructure.csproj", "{E5653F58-1BCC-4063-A1F4-BFE698A28CFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.API.Infrastructure", "ToDoList.API.Infrastructure\ToDoList.API.Infrastructure.csproj", "{E5653F58-1BCC-4063-A1F4-BFE698A28CFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.API.Core", "ToDoList.Domain\ToDoList.API.Core.csproj", "{1E437B5E-7411-4B2A-B7B8-464047C4455C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.API.Core", "ToDoList.API.Core\ToDoList.API.Core.csproj", "{1E437B5E-7411-4B2A-B7B8-464047C4455C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.API.Tests", "ToDoList.API.Tests\ToDoList.API.Tests.csproj", "{FF863AC9-C9DB-4B29-BAC1-90646E0EECC6}"
 EndProject
