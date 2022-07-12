@@ -1,2 +1,4 @@
 # ToDoList
-An application for managing todo items
+An ASP.NET Core 6 Web API for managing todo items.
+
+UI repository: https://github.com/ionhristiniuc/todo-list-ui
