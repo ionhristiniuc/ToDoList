@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using ToDoList.API.Core.Commands.InsertTodoItem;
 using ToDoList.API.Core.Dto;
 using ToDoList.API.Core.Entities;
 using ToDoList.API.Core.Interfaces.Services;
@@ -10,12 +12,14 @@ namespace ToDoList.API.Controllers
     public class TodoItemsController : BaseAuthorizedController
     {
         private readonly ITodoItemsService todoItemsService;
+        private readonly IMediator mediator;
 
         public TodoItemsController(IHttpContextAccessor httpContextAccessor,
-            ITodoItemsService todoItemsService)
+            ITodoItemsService todoItemsService, IMediator mediator)
             : base(httpContextAccessor)
         {
             this.todoItemsService = todoItemsService;
+            this.mediator = mediator;
         }
 
         [HttpGet]
@@ -27,9 +31,10 @@ namespace ToDoList.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostTodoItemAsync(CreateToDoRequest request)
+        public async Task<IActionResult> PostTodoItemAsync(InsertTodoItemCommand request)
         {
-            var createdToDoItemResult = await todoItemsService.CreateAsync(request, base.LoggedInUserId);
+            request.UserId = base.LoggedInUserId;
+            var createdToDoItemResult = await mediator.Send(request);
             return CreatedAtAction("GetTodoItem", new { id = createdToDoItemResult.Value.Id }, createdToDoItemResult.Value);
         }
 

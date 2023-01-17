@@ -1,9 +1,12 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.API.Extensions;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using MediatR;
 using Microsoft.OpenApi.Models;
+using ToDoList.API.Core.Commands.InsertTodoItem;
 using ToDoList.API.Core.Interfaces;
 using ToDoList.API.Core.Interfaces.Repositories;
 using ToDoList.API.Core.Interfaces.Services;
@@ -19,6 +22,8 @@ namespace ToDoList.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            
+            builder.Services.AddMediatR(typeof(InsertTodoItemCommandHandler).Assembly);
 
             builder.Services.AddDbContext<ToDoItemsContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") 
